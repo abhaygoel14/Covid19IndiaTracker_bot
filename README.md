@@ -16,10 +16,6 @@ Feature of the Bot :
 
 2.Check out the graph of recent trends of COVID from 2020 - 2021.
 
-Challenges yet to be solved :
-
-1: Covid Bot is sending notification for every 2 min of particular district on a particluar date. 
-Need to optimize the bot in such a way that it loop stop as soon as someone in the group send command "Stop".
 
 Check out the video for better understanding how it works:
 
