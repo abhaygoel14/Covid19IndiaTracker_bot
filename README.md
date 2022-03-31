@@ -11,8 +11,8 @@ Technology Used : Python , Telegram API , Data Analysis
 IDE Preferred : PyCharm , Jupyter Notebook 
 
 Feature of the Bot : 
-1. Receive Notification instantly live updated for every 2 min in any telegram group about vaccination center by sending your DISTRICT ID and DATE.
-2. Check out the graph of recent trends of COVID from 2020 - 2021.
+1.Receive Notification instantly live updated for every 2 min in any telegram group about vaccination center by sending your DISTRICT ID and DATE.
+2.Check out the graph of recent trends of COVID from 2020 - 2021.
 
 Challenges yet to be solved :
 
