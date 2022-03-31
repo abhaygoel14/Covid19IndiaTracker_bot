@@ -2,8 +2,8 @@ import requests
 import json
 import time
 
-tokenn="5261206107:AAFYjjoYoFpa0j3P_MSVwyuv7"
-idi = -1001534803074
+
+idi = -1001534803074 #chat id
 header = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'}
 
 message = "Hello! Welcome to Covid Platform!"
@@ -17,6 +17,7 @@ send_photo = "https://api.telegram.org/bot"+TOKEN+"/sendPhoto"
 
 send_notification = False
 
+#multiple urls to see the data analysis of covid
 urls = [
             "https://drive.google.com/file/d/1KunYh-60sS-6UB7trWIklLBUgn3TkMMe/view?usp=sharing",
             "https://drive.google.com/file/d/1mCz8GqMSECX4wwRUkPzQe0TCti1uLs83/view?usp=sharing",
@@ -66,12 +67,12 @@ def auto_answer(message):
         return answer
 
     elif message.startswith("Availability of vaccine"):
-        pin=message.split()[3]
-        dt=message.split()[4]
+        pin=message.split()[3]  #extract district code
+        dt=message.split()[4]   #extract date
         global  send_notification
         send_notification=True
         while (send_notification):
-            welcome = base_url + "/sendMessage?chat_id=-1001534803074&text=" + message
+            welcome = base_url + "/sendMessage?chat_id="Write your group chat id"&text=" + message
             requests.get(welcome)
             # msg = []
             for i in range(362,500):
@@ -85,7 +86,6 @@ def auto_answer(message):
                             # msg=[]
                             msg.append({
                                 "district_name": centers["district_name"],
-                                # "district_name": centers["district_name"],
                                 "name": centers["name"],
                                 "fees": centers["fee_type"]
                             })
@@ -105,11 +105,11 @@ def auto_answer(message):
                             parse_data = parse_data.replace("]", "")
                             parse_data = parse_data.replace(",", "\n")
                             print(parse_data)
-                            un_url = "https://api.telegram.org/bot5168319038:AAF0lSXx9wTkqaXVHtACppBg7qrpedHvv8I/sendMessage?chat_id=-1001534803074&text=" + parse_data
+                            un_url = "https://api.telegram.org/bot"+TOKEN"/sendMessage?chat_id=-1001534803074&text=" + parse_data
                             y = requests.get(un_url)
                             print(y)
                             time.sleep(20)
-            time.sleep(600)
+            time.sleep(600)  #To get live notification of every district search by user within 2 min interval
 
     elif message.lower()=="stop":
         print(message.lower())
@@ -121,7 +121,7 @@ def auto_answer(message):
             if captions[i] == message:
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", #enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -136,7 +136,7 @@ def auto_answer(message):
                 if captions[i] == "COVID 19 : Pandemic In India":
                     # time.sleep(10)
                     parameters = {
-                        "chat_id": "-1001534803074",
+                        "chat_id": "-1001534803074", #enter your group chat_id
                         "photo": urls[i],
                         "caption": captions[i]
                     }
@@ -151,7 +151,7 @@ def auto_answer(message):
                 if captions[i] == "State wise Confirmed/Death/Recovered Stacked":
                     # time.sleep(10)
                     parameters = {
-                        "chat_id": "-1001534803074",
+                        "chat_id": "-1001534803074", //enter your group chat_id
                         "photo": urls[i],
                         "caption": captions[i]
                     }
@@ -166,7 +166,7 @@ def auto_answer(message):
             if captions[i] == "State wise Cases per 100 confirmed":
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", #enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -181,7 +181,7 @@ def auto_answer(message):
             if captions[i] == "7 days Mean Confirmed":
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", //enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -196,7 +196,7 @@ def auto_answer(message):
             if captions[i] == "Recovered":
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", #enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -211,7 +211,7 @@ def auto_answer(message):
             if captions[i] == "Death Report":
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", #enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -228,7 +228,7 @@ def auto_answer(message):
             if captions[i] == "Total Cases Statistics":
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", #enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -243,7 +243,7 @@ def auto_answer(message):
             if captions[i] == "Top21 Confirmed/Death/Recovered Stacked":
                 # time.sleep(10)
                 parameters = {
-                    "chat_id": "-1001534803074",
+                    "chat_id": "-1001534803074", #enter your group chat_id
                     "photo": urls[i],
                     "caption": captions[i]
                 }
@@ -266,7 +266,7 @@ def send_msg(message):
     message_id = message["message"]["message_id"]
     answer = auto_answer(text)
     parameters = {
-        "chat_id": "-1001534803074",
+        "chat_id": "-1001534803074", #enter your group chat_id
         "text": answer,
         "reply_to_message_id": message_id
     }
